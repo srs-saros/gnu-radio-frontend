@@ -3,10 +3,8 @@
   "version": "1.0.0",
   "description": "Process signals received by the SDR in order to obtain the processed signal data and graphics on them.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "start": "npm run build && electron ./build/index.js"
+  "scripts": {    
+    "start": "tsc && electron ./build/index.js"
   },
   "repository": {
     "type": "git",
