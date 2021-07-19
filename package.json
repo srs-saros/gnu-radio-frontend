@@ -4,7 +4,7 @@
   "description": "Process signals received by the SDR in order to obtain the processed signal data and graphics on them.",
   "main": "./dist/main.js",
   "scripts": {
-    "dev:electron": "cross-env  NODE_ENV=development webpack --config webpack.electron.config.js --mode development && electron .",
+    "dev:electron": "cross-env NODE_ENV=development webpack --config webpack.electron.config.js --mode development && electron .",
     "dev:react": "cross-env NODE_ENV=development webpack-dev-server --config webpack.react.config.js --mode development",
     "build:electron": "cross-env NODE_ENV=production webpack --config webpack.electron.config.js --mode production",
     "build:react": "cross-env NODE_ENV=production webpack --config webpack.react.config.js --mode production",
@@ -32,10 +32,10 @@
     "cross-env": "^7.0.3",
     "electron": "^13.1.7",
     "electron-builder": "^22.11.7",
-    "html-webpack-plugin": "^5.3.2",
-    "webpack": "^5.45.1",
-    "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2"
+    "html-webpack-plugin": "^4.2.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
     "@types/react": "^17.0.14",
