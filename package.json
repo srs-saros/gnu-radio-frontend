@@ -1,10 +1,16 @@
 {
-  "name": "srs-gnu-radio-frontend",
+  "name": "gnu-radio-frontend",
   "version": "1.0.0",
   "description": "Process signals received by the SDR in order to obtain the processed signal data and graphics on them.",
-  "main": "index.js",
-  "scripts": {    
-    "start": "tsc && electron ./build/index.js"
+  "main": "./dist/main.js",
+  "scripts": {
+    "dev:electron": "cross-env NODE_ENV=development webpack --config webpack.electron.config.js --mode development && electron .",
+    "dev:react": "cross-env NODE_ENV=development webpack-dev-server --config webpack.react.config.js --mode development",
+    "build:electron": "cross-env NODE_ENV=production webpack --config webpack.electron.config.js --mode production",
+    "build:react": "cross-env NODE_ENV=production webpack --config webpack.react.config.js --mode production",
+    "build": "npm run build:electron && npm run build:react",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "repository": {
     "type": "git",
@@ -17,20 +23,35 @@
     "url": "https://github.com/srs-saros/gnu-radio-frontend/issues"
   },
   "homepage": "https://github.com/srs-saros/gnu-radio-frontend#readme",
-  "dependencies": {
-    "electron": "^13.1.2"
-  },
   "devDependencies": {
-    "@types/jest": "^26.0.23",
-    "@types/node": "^14.17.3",
-    "@typescript-eslint/eslint-plugin": "^4.27.0",
-    "@typescript-eslint/parser": "^4.27.0",
-    "dotenv": "^10.0.0",
-    "eslint": "^7.28.0",
-    "jest": "^27.0.4",
-    "ts-jest": "^27.0.3",
-    "ts-node": "^10.0.0",
-    "tsconfig-paths": "^3.9.0",
-    "typescript": "^4.3.2"
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.3",
+    "electron": "^8.2.2",
+    "electron-builder": "^22.7.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jest": "^24.4.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "html-webpack-plugin": "^4.2.0",
+    "husky": "^7.0.1",
+    "prettier": "^2.3.2",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }

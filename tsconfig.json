@@ -1,24 +1,37 @@
 {
-    "$schema": "https://json.schemastore.org/tsconfig",
-    "display": "Node 14",
-  
-    "compilerOptions": {
-      "lib": ["dom", "es2020"],
-      "module": "commonjs",
-      "target": "es2020",
-      "baseUrl": "./src",
-      "paths": {
-        "@/*": ["/*"]        
-      },
-      "rootDir": "src",
-      "sourceMap": true,
-      "outDir": "build",
-      "incremental": true,
-  
-      "strict": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true
-    },
-    "exclude": ["node_modules", "build"]
-  }
+  "compilerOptions": {
+    "module": "esnext",
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2020",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react",
+    "baseUrl": "src",
+    "outDir": "./dist",
+    "sourceMap": true
+  },
+  "include": [
+    "src",
+    "tests"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
