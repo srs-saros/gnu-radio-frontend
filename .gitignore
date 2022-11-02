@@ -119,6 +119,7 @@ fabric.properties
 .idea/misc.xml
 .idea/modules.xml
 .idea/vcs.xml
+.idea/gnu-radio-frontend.iml
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
