@@ -11,7 +11,8 @@ class PanelImagen(ttk.Frame):
 
         # Imagen
         self.imagen = tk.PhotoImage(
-            file='../assets/backgroundLogin.png')
+            file='../assets/backgroundLogin.png'
+        )
 
         # Label Fondo de pantalla
         self.imagen_label = ttk.Label(
@@ -20,7 +21,7 @@ class PanelImagen(ttk.Frame):
             background='#213A65'
         )
 
-        self.imagen_label.pack()
+        self.imagen_label.grid(column=0, row=0, sticky=tk.NS)
 
         # Instancia controlador
         self.controlador = None
@@ -39,60 +40,54 @@ class PanelElementos(ttk.Frame):
         # Label titulo
         self.titulo_label = ttk.Label(
             self,
-            text="Welcome to ListenAstro",
-            font="Roboto 25 bold",
-            background='white'
-
+            style='LT.TLabel',
+            text="Bienvenido a ListenAstro"
         )
-        self.titulo_label.grid(column=0, row=3, padx=15, ipady=50)
+        self.titulo_label.grid(column=0, row=0, pady=50)
 
         # Label usuario
         self.usuario_label = ttk.Label(
             self,
-            text="Usuario",
-            font="Roboto 15 bold",
-            background='white'
+            style="LU.TLabel",
+            text="Usuario"
         )
-        self.usuario_label.grid(column=0, row=5, padx=25, sticky=tk.W)
+        self.usuario_label.grid(column=0, row=1, sticky=tk.W)
 
         # Campo de texto usuario
         self.usuario_text = ttk.Entry(
             self,
             style="EU.TEntry",
-            width=40,
-            font=font.Font(family="Arial", size=15)
+            font=font.Font(family="Arial", size=15),
+            width=38
         )
         self.usuario_text.focus()
-        self.usuario_text.grid(column=0, row=6, pady=10)
+        self.usuario_text.grid(column=0, row=2, pady=10)
 
         # Label contraseña
         self.contrasena_label = ttk.Label(
             self,
-            text="Contraseña",
-            font="Roboto 15 bold",
-            background='white'
+            style='LC.TLabel',
+            text="Contraseña"
         )
-        self.contrasena_label.grid(column=0, row=8, padx=25, ipady=10, sticky=tk.W)
+        self.contrasena_label.grid(column=0, row=3, sticky=tk.W)
 
         # Campo de texto contraseña
         self.contrasena_text = ttk.Entry(
             self,
             style="EC.TEntry",
             show="*",
-            width=40,
+            width=38,
             font=font.Font(family="Arial", size=15)
         )
-        self.contrasena_text.grid(column=0, row=9, pady=10)
+        self.contrasena_text.grid(column=0, row=4, pady=10)
 
         # Boton login
-        self.boton_login = tk.Button(
+        self.boton_login = ttk.Button(
             self,
-            text="Ingresar",
-            background='#283758',
-            foreground='white',
-            font="Roboto 15"
+            style='BL.TButton',
+            text="Ingresar"
         )
-        self.boton_login.grid(column=0, row=11, ipady=10, ipadx=20, pady=30)
+        self.boton_login.grid(column=0, row=5, ipady=10, pady=20)
         self.boton_login.config(
             command=lambda: self.controlador.loginControlador(self.usuario_text.get(), self.contrasena_text.get()))
 
@@ -105,14 +100,45 @@ class PanelElementos(ttk.Frame):
         # Frame
         self.style.configure('TFrame', background='white')
 
+        # Label
+        self.style.configure(
+            'LT.TLabel',
+            font=('Roboto', 23, 'bold'),
+            background='white',
+            foreground="#283758"
+        )
+
+        self.style.configure(
+            'LU.TLabel',
+            font=('Roboto', 15, 'bold'),
+            background='white',
+            foreground="#283758"
+        )
+
+        self.style.configure(
+            'LC.TLabel',
+            font=('Roboto', 15, 'bold'),
+            background='white',
+            foreground="#283758"
+        )
+
         # Entry
         self.style.configure(
             'EU.TEntry',
             padding=5
         )
+
         self.style.configure(
             'EC.TEntry',
             padding=5
+        )
+
+        # Button
+        self.style.configure(
+            'BL.TButton',
+            background='#283758',
+            foreground='white',
+            font=('Roboto', 15)
         )
 
     # MÉTODO PARA ACTUALIZAR LA REFERENCIA AL CONTROLADOR

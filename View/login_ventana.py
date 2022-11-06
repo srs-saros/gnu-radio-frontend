@@ -15,7 +15,7 @@ class Login(tk.Tk):
         self.tk.call('wm', 'iconphoto', self._w, ImageTk.PhotoImage(Image.open('../assets/icon.ico')))
 
         # Establecemos los valores de la ventana
-        ancho = 985
+        ancho = 1000
         alto = 729
 
         # Obtenemos la dimensiones de la pantalla
@@ -36,10 +36,10 @@ class Login(tk.Tk):
 
         # Creamos y agragamos los paneles a la vista (login)
         panel_imagen = PanelImagen(self)
-        panel_imagen.grid(column=0, row=0)
+        panel_imagen.grid(column=0, row=0, sticky=tk.EW)
 
         panel_elementos = PanelElementos(self)
-        panel_elementos.grid(column=1, row=0)
+        panel_elementos.grid(column=1, row=0, sticky=tk.EW)
 
         # Creamos el modelo
         modelo = ModeloLogin(self)
