@@ -1,5 +1,6 @@
 import tkinter as tk
 from PIL import ImageTk, Image
+from View.configuracion_panel import PanelEncabezado, PanelInfoAntena, PanelInfoObservacion
 
 
 class Configuracion(tk.Toplevel):
@@ -12,7 +13,7 @@ class Configuracion(tk.Toplevel):
         self.tk.call('wm', 'iconphoto', self._w, ImageTk.PhotoImage(Image.open('../assets/icon.ico')))
 
         # Establecemos los valores de la ventana
-        ancho = 1000
+        ancho = 1200
         alto = 729
 
         # Obtenemos la dimensiones de la pantalla
@@ -27,4 +28,28 @@ class Configuracion(tk.Toplevel):
         self.title('Listen Astro')
         self.geometry(f'{ancho}x{alto}+{centro_x}+{centro_y}')
         self.resizable(False, False)
+        # self.overrideredirect(True)
         self.config(background='white')
+        self.rowconfigure(0, weight=1)
+        self.rowconfigure(1, weight=4)
+        self.rowconfigure(2, weight=3)
+
+        # Creamos y agregamos los paneles a la vista (login)
+        # Panel encabezado
+        panel_encabezado = PanelEncabezado(self)
+        panel_encabezado.grid(row=0, column=0, sticky=tk.EW)
+        panel_encabezado.columnconfigure(0, weight=1)
+        panel_encabezado.columnconfigure(0, weight=1)
+
+        # Panel informacion antena
+        panel_info_antena = PanelInfoAntena(self)
+        panel_info_antena.grid(row=1, column=0, sticky=tk.EW)
+        panel_info_antena.columnconfigure(0, weight=1)
+        panel_info_antena.columnconfigure(0, weight=1)
+
+        # Panel encabezado
+        panel_info_observacion = PanelInfoObservacion(self)
+        panel_info_observacion.grid(row=2, column=0, sticky=tk.EW)
+        panel_info_observacion.columnconfigure(0, weight=1)
+        panel_info_observacion.columnconfigure(0, weight=1)
+
