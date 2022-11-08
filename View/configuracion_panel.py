@@ -2,7 +2,7 @@ from tkinter import ttk, font
 import tkinter as tk
 
 
-class PanelEncabezado(ttk.Frame):
+class PanelElementos(ttk.Frame):
 
     def __init__(self, ventana):
         super().__init__(ventana)
@@ -11,7 +11,7 @@ class PanelEncabezado(ttk.Frame):
 
         # Botón atras
         self.imagen_boton = tk.PhotoImage(
-            file='../assets/arrow.png'
+            file='../assets/arrow3.png'
         )
 
         self.boton_atras = ttk.Button(
@@ -31,13 +31,30 @@ class PanelEncabezado(ttk.Frame):
             style="LIU.TLabel",
             image=self.imagen_icono_usuario
         )
-        self.label_icono_usuario.grid(column=1, row=0, sticky=tk.E)
+        self.label_icono_usuario.grid(column=5, row=0, padx=20, pady=15, sticky=tk.E)
+
+        # Label titulo informacion antena
+        self.label_info_antena = ttk.Label(
+            self,
+            style='LIA.TLabel',
+            text='Ingrese la Información Sobre su Antena'
+
+        )
+        self.label_info_antena.grid(column=0, row=1, columnspan=6, pady=10)
+
+        # Label antena
+        self.label_antena = ttk.Label(
+            self,
+            style='LA.TLabel',
+            text='Antena:'
+        )
+        self.label_antena.grid(column=0, row=2, columnspan=3, padx=5, pady=30, sticky=tk.E)
 
         # CONFIGURACIÓN DE ESTILOS
         self.style = ttk.Style()
 
         # Frame
-        self.style.configure('FPE.TFrame', background='red')
+        self.style.configure('TFrame', background='white')
 
         # Button
         self.style.configure(
@@ -52,26 +69,16 @@ class PanelEncabezado(ttk.Frame):
             background='white'
         )
 
+        self.style.configure(
+            'LIA.TLabel',
+            font=('Roboto', 25),
+            background='white',
+            foreground="#000000"
+        )
 
-class PanelInfoAntena(ttk.Frame):
-
-    def __init__(self, ventana):
-        super().__init__(ventana)
-
-        # CONFIGURACIÓN DE ESTILOS
-        self.style = ttk.Style()
-
-        # Frame
-        self.style.configure('TFrame2', background='blue')
-
-
-class PanelInfoObservacion(ttk.Frame):
-
-    def __init__(self, ventana):
-        super().__init__(ventana)
-
-        # CONFIGURACIÓN DE ESTILOS
-        self.style = ttk.Style()
-
-        # Frame
-        self.style.configure('TFrame3', background='green')
+        self.style.configure(
+            'LA.TLabel',
+            font=('Roboto', 15),
+            background='white',
+            foreground="#000000"
+        )
