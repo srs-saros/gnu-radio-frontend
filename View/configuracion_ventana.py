@@ -1,6 +1,6 @@
 import tkinter as tk
 from PIL import ImageTk, Image
-from View.configuracion_panel import PanelEncabezado, PanelInfoAntena, PanelInfoObservacion
+from View.configuracion_panel import PanelElementos
 
 
 class Configuracion(tk.Toplevel):
@@ -30,26 +30,15 @@ class Configuracion(tk.Toplevel):
         self.resizable(False, False)
         # self.overrideredirect(True)
         self.config(background='white')
-        self.rowconfigure(0, weight=1)
-        self.rowconfigure(1, weight=4)
-        self.rowconfigure(2, weight=3)
+        self.columnconfigure(0, weight=1)
 
         # Creamos y agregamos los paneles a la vista (login)
         # Panel encabezado
-        panel_encabezado = PanelEncabezado(self)
-        panel_encabezado.grid(row=0, column=0, sticky=tk.EW)
-        panel_encabezado.columnconfigure(0, weight=1)
-        panel_encabezado.columnconfigure(0, weight=1)
-
-        # Panel informacion antena
-        panel_info_antena = PanelInfoAntena(self)
-        panel_info_antena.grid(row=1, column=0, sticky=tk.EW)
-        panel_info_antena.columnconfigure(0, weight=1)
-        panel_info_antena.columnconfigure(0, weight=1)
-
-        # Panel encabezado
-        panel_info_observacion = PanelInfoObservacion(self)
-        panel_info_observacion.grid(row=2, column=0, sticky=tk.EW)
-        panel_info_observacion.columnconfigure(0, weight=1)
-        panel_info_observacion.columnconfigure(0, weight=1)
-
+        panel_elementos = PanelElementos(self)
+        panel_elementos.grid(row=0, column=0, sticky=tk.EW)
+        panel_elementos.columnconfigure(0, weight=1)
+        panel_elementos.columnconfigure(1, weight=1)
+        panel_elementos.columnconfigure(2, weight=1)
+        panel_elementos.columnconfigure(3, weight=1)
+        panel_elementos.columnconfigure(4, weight=1)
+        panel_elementos.columnconfigure(5, weight=1)
