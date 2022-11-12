@@ -24,8 +24,9 @@ class ModeloLogin:
     # METODO LOGIN
     def login(self, usuario, contrasena):
         try:
-            usuario = 'nicolas.rojas01@usa.edu.co'
-            contrasena = 'comida1234'
+            usuario = "nicolas.rojas01@usa.edu.co"
+            contrasena = "comida1234"
+
             login = auth.sign_in_with_email_and_password(usuario, contrasena)
             self.ventana.withdraw()
             configuracion = Configuracion(self.ventana)

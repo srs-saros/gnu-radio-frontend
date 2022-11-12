@@ -13,8 +13,8 @@ class Configuracion(tk.Toplevel):
         self.tk.call('wm', 'iconphoto', self._w, ImageTk.PhotoImage(Image.open('../assets/icon.ico')))
 
         # Establecemos los valores de la ventana
-        ancho = 1200
-        alto = 729
+        ancho = 1500
+        alto = 950
 
         # Obtenemos la dimensiones de la pantalla
         ancho_pantalla = self.winfo_screenwidth()
