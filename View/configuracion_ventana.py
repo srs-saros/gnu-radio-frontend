@@ -33,7 +33,6 @@ class Configuracion(tk.Toplevel):
         self.columnconfigure(0, weight=1)
 
         # Creamos y agregamos los paneles a la vista (login)
-        # Panel encabezado
         panel_elementos = PanelElementos(self)
         panel_elementos.grid(row=0, column=0, sticky=tk.EW)
         panel_elementos.columnconfigure(0, weight=1)
