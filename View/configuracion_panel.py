@@ -2,13 +2,14 @@ from tkinter import ttk, font
 import tkinter as tk
 
 
-class PanelElementos(ttk.Frame):
+class PanelEncabezado(ttk.Frame):
 
     def __init__(self, ventana):
         super().__init__(ventana)
 
         # CREACIÓN DE LOS WIDGETS
 
+        # ENCABEZADO PANEL
         # Botón atras
         self.imagen_boton = tk.PhotoImage(
             file='../assets/Arrow.png'
@@ -31,9 +32,8 @@ class PanelElementos(ttk.Frame):
             style="LIU.TLabel",
             image=self.imagen_icono_usuario
         )
-        self.label_icono_usuario.grid(column=5, row=0, padx=20, pady=15, sticky=tk.E)
+        self.label_icono_usuario.grid(column=1, row=0, padx=20, pady=15, sticky=tk.E)
 
-        # BLOQUE DE INFORMACIÓN DE LA ANTENA
         # Label titulo informacion antena
         self.label_info_antena = ttk.Label(
             self,
@@ -41,7 +41,7 @@ class PanelElementos(ttk.Frame):
             text='Ingrese la Información Sobre su Antena'
 
         )
-        self.label_info_antena.grid(column=0, row=1, columnspan=6, pady=20)
+        self.label_info_antena.grid(column=0, row=1, columnspan=2, pady=20)
 
         # Label antena
         self.label_antena = ttk.Label(
@@ -49,7 +49,7 @@ class PanelElementos(ttk.Frame):
             style='LA.TLabel',
             text='Antena: '
         )
-        self.label_antena.grid(column=2, row=2, pady=30, ipadx=50)
+        self.label_antena.grid(column=0, row=2, pady=30, sticky=tk.E)
 
         # Combobox antena
         self.combobox_valor = tk.StringVar()
@@ -68,8 +68,62 @@ class PanelElementos(ttk.Frame):
 
         self.combobox_antena.focus()
 
-        self.combobox_antena.grid(column=2, row=2, columnspan=2, pady=30, padx=70, sticky=tk.E)
+        self.combobox_antena.grid(column=1, row=2, pady=30, sticky=tk.W)
 
+        # CONFIGURACIÓN DE ESTILOS
+        self.style = ttk.Style()
+
+        # Frame
+        self.style.configure('TFrame', background='White')
+
+        # Button
+        self.style.configure(
+            'BA.TButton',
+            background='white',
+            borderwidth=0
+        )
+
+        # Label
+        self.style.configure(
+            'LIU.TLabel',
+            background='white'
+        )
+
+        self.style.configure(
+            'LIA.TLabel',
+            font=('Roboto', 30),
+            background='white',
+            foreground="#000000"
+        )
+
+        self.style.configure(
+            'LA.TLabel',
+            font=('Roboto', 15),
+            background='white',
+            foreground="#000000"
+        )
+
+        # Combobox
+        self.style.configure(
+            'CA.TCombobox',
+            bordercolor='#283758',
+            selectbackground='#d9d9d9',
+            foreground='black',
+            selectforeground='black',
+            selectborderwidth=0,
+            padding=5
+
+        )
+
+
+class PanelInformacionAntena(ttk.Frame):
+
+    def __init__(self, ventana):
+        super().__init__(ventana)
+
+        # CREACIÓN DE LOS WIDGETS
+
+        # BLOQUES DE INFORMACIÓN DE LA ANTENA
         # Label Alias
         self.label_alias = ttk.Label(
             self,
@@ -181,7 +235,101 @@ class PanelElementos(ttk.Frame):
         )
         self.button_guardar.grid(column=0, row=7, columnspan=6, ipadx=15, ipady=5, pady=35)
 
-        # BLOQUE DE OBSERVACIÓN DE LA ANTENA
+        # CONFIGURACIÓN DE ESTILOS
+        self.style = ttk.Style()
+
+        # Frame
+        self.style.configure('TFrame', background='White')
+
+        # Label
+        self.style.configure(
+            'LAL.TLabel',
+            font=('Roboto', 15),
+            background='white',
+            foreground="#000000"
+        )
+
+        self.style.configure(
+            'LROE.TLabel',
+            font=('Roboto', 15),
+            background='white',
+            foreground="#000000"
+        )
+
+        self.style.configure(
+            'LL.TLabel',
+            font=('Roboto', 15),
+            background='white',
+            foreground="#000000"
+        )
+
+        self.style.configure(
+            'LG.TLabel',
+            font=('Roboto', 15),
+            background='white',
+            foreground="#000000"
+        )
+
+        self.style.configure(
+            'LT.TLabel',
+            font=('Roboto', 15),
+            background='white',
+            foreground="#000000"
+        )
+
+        self.style.configure(
+            'LIM.TLabel',
+            font=('Roboto', 15),
+            background='white',
+            foreground="#000000"
+        )
+
+        # Entry
+        self.style.configure(
+            'EA.TEntry',
+            padding=5
+        )
+
+        self.style.configure(
+            'EROE.TEntry',
+            padding=5
+        )
+
+        self.style.configure(
+            'EL.TEntry',
+            padding=5
+        )
+
+        self.style.configure(
+            'EG.TEntry',
+            padding=5
+        )
+
+        self.style.configure(
+            'ET.TEntry',
+            padding=5
+        )
+
+        self.style.configure(
+            'EIM.TEntry',
+            padding=5
+        )
+
+        # Button
+        self.style.configure(
+            'BG.TButton',
+            background='#C84941',
+            foreground='white',
+            font=('Roboto', 15)
+        )
+
+
+class PanelObservacionAntena(ttk.Frame):
+
+    def __init__(self, ventana):
+        super().__init__(ventana)
+
+        # CREACIÓN DE LOS WIDGETS
 
         # Label título observación antena
         self.label_info_observacion = ttk.Label(
@@ -197,7 +345,7 @@ class PanelElementos(ttk.Frame):
             style='LD.TLabel',
             text='Declinación = '
         )
-        self.label_declinacion.grid(column=0, row=9, sticky="E", pady=10)
+        self.label_declinacion.grid(column=0, row=9, sticky=tk.E, pady=10)
 
         # Campo de texto declinación
         self.text_declinacion = ttk.Entry(
@@ -292,25 +440,6 @@ class PanelElementos(ttk.Frame):
 
         # Label
         self.style.configure(
-            'LIU.TLabel',
-            background='white'
-        )
-
-        self.style.configure(
-            'LIA.TLabel',
-            font=('Roboto', 30),
-            background='white',
-            foreground="#000000"
-        )
-
-        self.style.configure(
-            'LA.TLabel',
-            font=('Roboto', 15),
-            background='white',
-            foreground="#000000"
-        )
-
-        self.style.configure(
             'LIO.TLabel',
             font=('Roboto', 30),
             background='white',
@@ -318,21 +447,7 @@ class PanelElementos(ttk.Frame):
         )
 
         self.style.configure(
-            'LAL.TLabel',
-            font=('Roboto', 15),
-            background='white',
-            foreground="#000000"
-        )
-
-        self.style.configure(
             'LD.TLabel',
-            font=('Roboto', 15),
-            background='white',
-            foreground="#000000"
-        )
-
-        self.style.configure(
-            'LROE.TLabel',
             font=('Roboto', 15),
             background='white',
             foreground="#000000"
@@ -346,21 +461,7 @@ class PanelElementos(ttk.Frame):
         )
 
         self.style.configure(
-            'LL.TLabel',
-            font=('Roboto', 15),
-            background='white',
-            foreground="#000000"
-        )
-
-        self.style.configure(
             'LN.TLabel',
-            font=('Roboto', 15),
-            background='white',
-            foreground="#000000"
-        )
-
-        self.style.configure(
-            'LG.TLabel',
             font=('Roboto', 15),
             background='white',
             foreground="#000000"
@@ -374,21 +475,7 @@ class PanelElementos(ttk.Frame):
         )
 
         self.style.configure(
-            'LT.TLabel',
-            font=('Roboto', 15),
-            background='white',
-            foreground="#000000"
-        )
-
-        self.style.configure(
             'LAz.TLabel',
-            font=('Roboto', 15),
-            background='white',
-            foreground="#000000"
-        )
-
-        self.style.configure(
-            'LIM.TLabel',
             font=('Roboto', 15),
             background='white',
             foreground="#000000"
@@ -401,27 +488,7 @@ class PanelElementos(ttk.Frame):
         )
 
         self.style.configure(
-            'EA.TEntry',
-            padding=5
-        )
-
-        self.style.configure(
             'EAR.TEntry',
-            padding=5
-        )
-
-        self.style.configure(
-            'EROE.TEntry',
-            padding=5
-        )
-
-        self.style.configure(
-            'EAR.TEntry',
-            padding=5
-        )
-
-        self.style.configure(
-            'EL.TEntry',
             padding=5
         )
 
@@ -431,54 +498,13 @@ class PanelElementos(ttk.Frame):
         )
 
         self.style.configure(
-            'EG.TEntry',
-            padding=5
-        )
-
-        self.style.configure(
             'EC.TEntry',
-            padding=5
-        )
-
-        self.style.configure(
-            'ET.TEntry',
-            padding=5
-        )
-
-        self.style.configure(
-            'EIM.TEntry',
             padding=5
         )
 
         self.style.configure(
             'EAz.TEntry',
             padding=5
-        )
-
-        # Combobox
-        self.style.configure(
-            'CA.TCombobox',
-            bordercolor='#283758',
-            selectbackground='#d9d9d9',
-            foreground='black',
-            selectforeground='black',
-            selectborderwidth=0,
-            padding=5
-
-        )
-
-        # Button
-        self.style.configure(
-            'BA.TButton',
-            background='white',
-            borderwidth=0
-        )
-
-        self.style.configure(
-            'BG.TButton',
-            background='#C84941',
-            foreground='white',
-            font=('Roboto', 15)
         )
 
         self.style.configure(

@@ -1,6 +1,6 @@
 import tkinter as tk
 from PIL import ImageTk, Image
-from View.configuracion_panel import PanelElementos
+from View.configuracion_panel import PanelEncabezado, PanelInformacionAntena, PanelObservacionAntena
 
 
 class Configuracion(tk.Toplevel):
@@ -28,16 +28,30 @@ class Configuracion(tk.Toplevel):
         self.title('Listen Astro')
         self.geometry(f'{ancho}x{alto}+{centro_x}+{centro_y}')
         self.resizable(False, False)
-        # self.overrideredirect(True)
+        # self.overrideredirect(1)
         self.config(background='white')
         self.columnconfigure(0, weight=1)
 
         # Creamos y agregamos los paneles a la vista (login)
-        panel_elementos = PanelElementos(self)
-        panel_elementos.grid(row=0, column=0, sticky=tk.EW)
-        panel_elementos.columnconfigure(0, weight=1)
-        panel_elementos.columnconfigure(1, weight=1)
-        panel_elementos.columnconfigure(2, weight=1)
-        panel_elementos.columnconfigure(3, weight=1)
-        panel_elementos.columnconfigure(4, weight=1)
-        panel_elementos.columnconfigure(5, weight=1)
+        panel_encabezado = PanelEncabezado(self)
+        panel_encabezado.grid(row=0, column=0, sticky=tk.EW)
+        panel_encabezado.columnconfigure(0, weight=1)
+        panel_encabezado.columnconfigure(1, weight=1)
+
+        panel_informacion_antena = PanelInformacionAntena(self)
+        panel_informacion_antena.grid(row=1, column=0, sticky=tk.EW)
+        panel_informacion_antena.columnconfigure(0, weight=1)
+        panel_informacion_antena.columnconfigure(1, weight=1)
+        panel_informacion_antena.columnconfigure(2, weight=1)
+        panel_informacion_antena.columnconfigure(3, weight=1)
+        panel_informacion_antena.columnconfigure(4, weight=1)
+        panel_informacion_antena.columnconfigure(5, weight=1)
+
+        panel_observacion_antena = PanelObservacionAntena(self)
+        panel_observacion_antena.grid(row=2, column=0, sticky=tk.EW)
+        panel_observacion_antena.columnconfigure(0, weight=1)
+        panel_observacion_antena.columnconfigure(1, weight=1)
+        panel_observacion_antena.columnconfigure(2, weight=1)
+        panel_observacion_antena.columnconfigure(3, weight=1)
+        panel_observacion_antena.columnconfigure(4, weight=1)
+        panel_observacion_antena.columnconfigure(5, weight=1)
