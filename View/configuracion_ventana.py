@@ -1,5 +1,7 @@
 import tkinter as tk
 from PIL import ImageTk, Image
+from Model.configuracion_modelo import ModeloConfiguracion
+from Controller.configuracion_controlador import ControladorConfiguracion
 from View.configuracion_panel import PanelEncabezado, PanelInformacionAntena, PanelObservacionAntena
 
 
@@ -13,20 +15,20 @@ class Configuracion(tk.Toplevel):
         self.tk.call('wm', 'iconphoto', self._w, ImageTk.PhotoImage(Image.open('../assets/icon.ico')))
 
         # Establecemos los valores de la ventana
-        ancho = 1500
-        alto = 950
+        self.anchoConfiguracion = 1500
+        self.altoConfiguracion = 950
 
         # Obtenemos la dimensiones de la pantalla
-        ancho_pantalla = self.winfo_screenwidth()
-        alto_pantalla = self.winfo_screenheight()
+        self.ancho_pantalla_Configuracion = self.winfo_screenwidth()
+        self.alto_pantalla_Configuracion = self.winfo_screenheight()
 
         # Encontramos el punto central de la pantalla
-        centro_x = int(ancho_pantalla / 2 - ancho / 2)
-        centro_y = int(alto_pantalla / 2 - alto / 2)
+        self.centro_x_Configuracion = int(self.ancho_pantalla_Configuracion / 2 - self.anchoConfiguracion / 2)
+        self.centro_y_Configuracion = int(self.alto_pantalla_Configuracion / 2 - self.altoConfiguracion / 2)
 
         # Configuración inicial de la ventana (configuración)
         self.title('Listen Astro')
-        self.geometry(f'{ancho}x{alto}+{centro_x}+{centro_y}')
+        self.geometry(f'{self.anchoConfiguracion}x{self.altoConfiguracion}+{self.centro_x_Configuracion}+{self.centro_y_Configuracion}')
         self.resizable(False, False)
         # self.overrideredirect(1)
         self.config(background='white')
@@ -55,3 +57,14 @@ class Configuracion(tk.Toplevel):
         panel_observacion_antena.columnconfigure(3, weight=1)
         panel_observacion_antena.columnconfigure(4, weight=1)
         panel_observacion_antena.columnconfigure(5, weight=1)
+
+        # Creamos el modelo
+        modelo = ModeloConfiguracion(self, ventana)
+
+        # Creamos el controlador
+        controlador = ControladorConfiguracion(modelo, panel_encabezado, panel_informacion_antena, panel_observacion_antena)
+
+        # Actualizamos la referencia del controlador en los paneles
+        panel_encabezado.set_controlador(controlador)
+        panel_informacion_antena.set_controlador(controlador)
+        panel_observacion_antena.set_controlador(controlador)

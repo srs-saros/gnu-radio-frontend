@@ -12,7 +12,7 @@ class PanelEncabezado(ttk.Frame):
         # ENCABEZADO PANEL
         # Botón atras
         self.imagen_boton = tk.PhotoImage(
-            file='../assets/Arrow.png'
+            file='../assets/exit.png'
         )
 
         self.boton_atras = ttk.Button(
@@ -21,6 +21,8 @@ class PanelEncabezado(ttk.Frame):
             image=self.imagen_boton
         )
         self.boton_atras.grid(column=0, row=0, padx=10, pady=15, sticky=tk.W)
+        self.boton_atras.config(
+            command=lambda: self.controlador.botonAtras())
 
         # Label icono usuario
         self.imagen_icono_usuario = tk.PhotoImage(
@@ -70,6 +72,9 @@ class PanelEncabezado(ttk.Frame):
 
         self.combobox_antena.grid(column=1, row=2, pady=30, sticky=tk.W)
 
+        # Instancia controlador
+        self.controlador = None
+
         # CONFIGURACIÓN DE ESTILOS
         self.style = ttk.Style()
 
@@ -114,6 +119,10 @@ class PanelEncabezado(ttk.Frame):
             padding=5
 
         )
+
+    # MÉTODO PARA ACTUALIZAR LA REFERENCIA AL CONTROLADOR
+    def set_controlador(self, controlador):
+        self.controlador = controlador
 
 
 class PanelInformacionAntena(ttk.Frame):
@@ -195,7 +204,7 @@ class PanelInformacionAntena(ttk.Frame):
         # Label tamaño
         self.label_tamaño = ttk.Label(
             self,
-            style='LT.TLabel',
+            style='LTT.TLabel',
             text='Tamaño = '
         )
         self.label_tamaño.grid(column=1, row=5, pady=10, sticky=tk.E)
@@ -235,6 +244,9 @@ class PanelInformacionAntena(ttk.Frame):
         )
         self.button_guardar.grid(column=0, row=7, columnspan=6, ipadx=15, ipady=5, pady=35)
 
+        # Instancia controlador
+        self.controlador = None
+
         # CONFIGURACIÓN DE ESTILOS
         self.style = ttk.Style()
 
@@ -271,7 +283,7 @@ class PanelInformacionAntena(ttk.Frame):
         )
 
         self.style.configure(
-            'LT.TLabel',
+            'LTT.TLabel',
             font=('Roboto', 15),
             background='white',
             foreground="#000000"
@@ -322,6 +334,10 @@ class PanelInformacionAntena(ttk.Frame):
             foreground='white',
             font=('Roboto', 15)
         )
+
+    # MÉTODO PARA ACTUALIZAR LA REFERENCIA AL CONTROLADOR
+    def set_controlador(self, controlador):
+        self.controlador = controlador
 
 
 class PanelObservacionAntena(ttk.Frame):
@@ -393,7 +409,7 @@ class PanelObservacionAntena(ttk.Frame):
         # Label cénit
         self.label_cenit = ttk.Label(
             self,
-            style='LC.TLabel',
+            style='LCE.TLabel',
             text='Cénit = '
         )
         self.label_cenit.grid(column=0, row=10, sticky="E", pady=10)
@@ -432,6 +448,9 @@ class PanelObservacionAntena(ttk.Frame):
         )
         self.boton_iniciar.grid(column=0, row=11, columnspan=6, ipadx=15, ipady=5, pady=35)
 
+        # Instancia controlador
+        self.controlador = None
+
         # CONFIGURACIÓN DE ESTILOS
         self.style = ttk.Style()
 
@@ -468,7 +487,7 @@ class PanelObservacionAntena(ttk.Frame):
         )
 
         self.style.configure(
-            'LC.TLabel',
+            'LCE.TLabel',
             font=('Roboto', 15),
             background='white',
             foreground="#000000"
@@ -513,3 +532,7 @@ class PanelObservacionAntena(ttk.Frame):
             foreground='white',
             font=('Roboto', 15)
         )
+
+    # MÉTODO PARA ACTUALIZAR LA REFERENCIA AL CONTROLADOR
+    def set_controlador(self, controlador):
+        self.controlador = controlador
