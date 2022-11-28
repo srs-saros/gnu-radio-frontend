@@ -9,12 +9,13 @@ class PanelImagen(ttk.Frame):
 
         # CREACIÓN DE LOS WIDGETS
 
+        # IMAGEN INICIO DE SESION
         # Imagen
         self.imagen = tk.PhotoImage(
             file='../assets/backgroundLogin.png'
         )
 
-        # Label Fondo de pantalla
+        # Label fondo de pantalla
         self.imagen_label = ttk.Label(
             self,
             image=self.imagen,
@@ -26,6 +27,7 @@ class PanelImagen(ttk.Frame):
         # Instancia controlador
         self.controlador = None
 
+    # MÉTODO PARA ACTUALIZAR LA REFERENCIA AL CONTROLADOR
     def set_controlador(self, controlador):
         self.controlador = controlador
 
@@ -37,6 +39,7 @@ class PanelElementos(ttk.Frame):
 
         # CREACIÓN DE LOS WIDGETS
 
+        # BLOQUES DE INICIO DE SESION
         # Label titulo
         self.titulo_label = ttk.Label(
             self,

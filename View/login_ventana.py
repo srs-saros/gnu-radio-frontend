@@ -15,20 +15,20 @@ class Login(tk.Tk):
         self.tk.call('wm', 'iconphoto', self._w, ImageTk.PhotoImage(Image.open('../assets/icon.ico')))
 
         # Establecemos los valores de la ventana
-        ancho = 1000
-        alto = 729
+        self.anchoLogin = 1000
+        self.altoLogin = 729
 
         # Obtenemos la dimensiones de la pantalla
-        ancho_pantalla = self.winfo_screenwidth()
-        alto_pantalla = self.winfo_screenheight()
+        self.ancho_pantalla_login = self.winfo_screenwidth()
+        self.alto_pantalla_login = self.winfo_screenheight()
 
         # Encontramos el punto central de la pantalla
-        centro_x = int(ancho_pantalla / 2 - ancho / 2)
-        centro_y = int(alto_pantalla / 2 - alto / 2)
+        self.centro_x_login = int(self.ancho_pantalla_login / 2 - self.anchoLogin / 2)
+        self.centro_y_login = int(self.alto_pantalla_login / 2 - self.altoLogin / 2)
 
         # Configuración inicial de la ventana (login)
         self.title('Listen Astro')
-        self.geometry(f'{ancho}x{alto}+{centro_x}+{centro_y}')
+        self.geometry(f'{self.anchoLogin}x{self.altoLogin}+{self.centro_x_login}+{self.centro_y_login}')
         self.resizable(False, False)
         self.config(background='white')
         self.columnconfigure(0, weight=1)
