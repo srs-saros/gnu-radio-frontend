@@ -16,7 +16,7 @@ class Configuracion(tk.Toplevel):
 
         # Establecemos los valores de la ventana
         self.anchoConfiguracion = 1500
-        self.altoConfiguracion = 950
+        self.altoConfiguracion = 900
 
         # Obtenemos la dimensiones de la pantalla
         self.ancho_pantalla_Configuracion = self.winfo_screenwidth()
