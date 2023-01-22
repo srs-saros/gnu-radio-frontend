@@ -1,6 +1,7 @@
 import tkinter as tk
 from PIL import ImageTk, Image
 from Model.configuracion_modelo import ModeloConfiguracion
+from GNU.FM_Receiver import FM_Receiver
 from Controller.configuracion_controlador import ControladorConfiguracion
 from View.configuracion_panel import PanelEncabezado, PanelInformacionAntena, PanelObservacionAntena
 
@@ -60,6 +61,7 @@ class Configuracion(tk.Toplevel):
 
         # Creamos el modelo
         modelo = ModeloConfiguracion(self, ventana)
+        gnu = FM_Receiver() # REVISAR LAS VARIASBLES DE GNU FRECUENCIA, VOLUMEN Y GANANCIA CUANTAN CON METODOS GET Y SET, ESTO PUEDE FACILITAR SU MANIPULACIÒN
 
         # Creamos el controlador
         controlador = ControladorConfiguracion(modelo, panel_encabezado, panel_informacion_antena, panel_observacion_antena)

@@ -242,7 +242,7 @@ class PanelInformacionAntena(ttk.Frame):
             style='BG.TButton',
             text='Guardar'
         )
-        self.button_guardar.grid(column=0, row=7, columnspan=6, ipadx=15, ipady=5, pady=35)
+        self.button_guardar.grid(column=0, row=7, columnspan=6, ipady=5, pady=35)
 
         # Instancia controlador
         self.controlador = None
@@ -355,90 +355,64 @@ class PanelObservacionAntena(ttk.Frame):
         )
         self.label_info_observacion.grid(column=0, row=8, columnspan=6, pady=20)
 
-        # Label declinación
-        self.label_declinacion = ttk.Label(
+        # Label ganancia
+        self.label_ganancia_GNU = ttk.Label(
             self,
-            style='LD.TLabel',
-            text='Declinación = '
+            style='LGA.TLabel',
+            text='Ganancia = '
         )
-        self.label_declinacion.grid(column=0, row=9, sticky=tk.E, pady=10)
+        self.label_ganancia_GNU.grid(column=0, row=9, sticky=tk.E, pady=10)
 
-        # Campo de texto declinación
-        self.text_declinacion = ttk.Entry(
+        # Campo de ganancia
+        self.text_ganancia_GNU = ttk.Entry(
             self,
-            style="ED.TEntry",
+            style="EGA.TEntry",
             font=font.Font(family="Arial", size=12),
             width=10
         )
-        self.text_declinacion.grid(column=1, row=9, sticky=tk.W, pady=10)
+        self.text_ganancia_GNU.grid(column=1, row=9, sticky=tk.W, pady=10)
 
-        # Label ascensión recta
-        self.label_ascension_recta = ttk.Label(
+        # Label frecuencia 
+        self.label_frecuencia = ttk.Label(
             self,
-            style='LAR.TLabel',
-            text='Ascensión recta = '
+            style='LFREC.TLabel',
+            text='Frecuencia = '
         )
-        self.label_ascension_recta.grid(column=2, row=9, sticky="E", pady=10)
+        self.label_frecuencia.grid(column=2, row=9, sticky="E", pady=10)
 
-        # Campo de texto ascensión recta
-        self.text_ascension_recta = ttk.Entry(
+        # Campo de texto frecuencia
+        self.text_frecuencia = ttk.Entry(
             self,
-            style="EAR.TEntry",
+            style="EFREC.TEntry",
             font=font.Font(family="Arial", size=12),
             width=10
         )
-        self.text_ascension_recta.grid(column=3, row=9, sticky=tk.W, pady=10)
+        self.text_frecuencia.grid(column=3, row=9, sticky=tk.W, pady=10)
 
-        # Label nombre
-        self.label_nombre = ttk.Label(
+        # Label volumen
+        self.label_volumen = ttk.Label(
             self,
-            style='LN.TLabel',
-            text='Nombre = '
+            style='LVOL.TLabel',
+            text='Volumen = '
         )
-        self.label_nombre.grid(column=4, row=9, sticky="E", pady=10)
+        self.label_volumen.grid(column=4, row=9, sticky="E", pady=10)
 
-        # Campo de texto nombre
-        self.text_nombre = ttk.Entry(
+        # Campo de texto volumen
+        self.text_volumen = ttk.Entry(
             self,
-            style="EN.TEntry",
+            style="EVOL.TEntry",
             font=font.Font(family="Arial", size=12),
             width=10
         )
-        self.text_nombre.grid(column=5, row=9, sticky=tk.W, pady=10)
+        self.text_volumen.grid(column=5, row=9, sticky=tk.W, pady=10)
 
-        # Label cénit
-        self.label_cenit = ttk.Label(
+        # Label separador
+        self.label_separador = ttk.Label(
             self,
-            style='LCE.TLabel',
-            text='Cénit = '
+            style='LS.TLabel',
+            text=''
         )
-        self.label_cenit.grid(column=0, row=10, sticky="E", pady=10)
-
-        # Campo de texto cénit
-        self.text_cenit = ttk.Entry(
-            self,
-            style="EC.TEntry",
-            font=font.Font(family="Arial", size=12),
-            width=10
-        )
-        self.text_cenit.grid(column=1, row=10, sticky=tk.W, pady=10)
-
-        # Label azimut
-        self.label_azimut = ttk.Label(
-            self,
-            style='LAz.TLabel',
-            text='Azimut = '
-        )
-        self.label_azimut.grid(column=2, row=10, sticky="E", pady=10)
-
-        # Campo de texto azimut
-        self.text_azimut = ttk.Entry(
-            self,
-            style="EAz.TEntry",
-            font=font.Font(family="Arial", size=12),
-            width=10
-        )
-        self.text_azimut.grid(column=3, row=10, sticky=tk.W, pady=10)
+        self.label_separador.grid(column=0, row=10,  columnspan=6, pady=10)
 
         # Botón iniciar
         self.boton_iniciar = ttk.Button(
@@ -446,7 +420,7 @@ class PanelObservacionAntena(ttk.Frame):
             style='BI.TButton',
             text="Iniciar"
         )
-        self.boton_iniciar.grid(column=2, row=11, ipady=5, pady=35)
+        self.boton_iniciar.grid(column=0, row=11, columnspan=3, sticky=tk.E, ipady=5, pady=35)
 
         # Botòn detener
         self.boton_detener = ttk.Button(
@@ -454,7 +428,7 @@ class PanelObservacionAntena(ttk.Frame):
             style="BD.TButton",
             text="Detener"
         )
-        self.boton_detener.grid(column=3, row=11, sticky=tk.W, ipady=5, pady=35)
+        self.boton_detener.grid(column=3, row=11, columnspan=3, sticky=tk.W, padx=50, ipady=5, pady=35)
 
         # Instancia controlador
         self.controlador = None
@@ -474,63 +448,45 @@ class PanelObservacionAntena(ttk.Frame):
         )
 
         self.style.configure(
-            'LD.TLabel',
+            'LGA.TLabel',
             font=('Roboto', 15),
             background='white',
             foreground="#000000"
         )
 
         self.style.configure(
-            'LAR.TLabel',
+            'LFREC.TLabel',
             font=('Roboto', 15),
             background='white',
             foreground="#000000"
         )
 
         self.style.configure(
-            'LN.TLabel',
+            'LVOL.TLabel',
             font=('Roboto', 15),
             background='white',
             foreground="#000000"
         )
 
         self.style.configure(
-            'LCE.TLabel',
-            font=('Roboto', 15),
-            background='white',
-            foreground="#000000"
-        )
-
-        self.style.configure(
-            'LAz.TLabel',
-            font=('Roboto', 15),
+            'LS.TLabel',
             background='white',
             foreground="#000000"
         )
 
         # Entry
         self.style.configure(
-            'ED.TEntry',
+            'EGA.TEntry',
             padding=5
         )
 
         self.style.configure(
-            'EAR.TEntry',
+            'EFREC.TEntry',
             padding=5
         )
 
         self.style.configure(
-            'EN.TEntry',
-            padding=5
-        )
-
-        self.style.configure(
-            'EC.TEntry',
-            padding=5
-        )
-
-        self.style.configure(
-            'EAz.TEntry',
+            'EVOL.TEntry',
             padding=5
         )
 

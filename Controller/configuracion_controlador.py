@@ -7,6 +7,12 @@ class ControladorConfiguracion:
         self.panel_informacion_antena = panel_informacion_antena
         self.panel_observacion_antena = panel_observacion_antena
 
+    def envioDatos(self, ganacia, frecuencia, volumen):
+        try:
+            ""
+        except BaseException as error:
+            print("Ha ocurrido un error en el controlador: ", error)
+
     def botonAtras(self):
         try:
             self.modelo.atras()
