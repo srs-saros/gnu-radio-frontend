@@ -446,7 +446,15 @@ class PanelObservacionAntena(ttk.Frame):
             style='BI.TButton',
             text="Iniciar"
         )
-        self.boton_iniciar.grid(column=0, row=11, columnspan=6, ipadx=15, ipady=5, pady=35)
+        self.boton_iniciar.grid(column=2, row=11, ipady=5, pady=35)
+
+        # Botòn detener
+        self.boton_detener = ttk.Button(
+            self,
+            style="BD.TButton",
+            text="Detener"
+        )
+        self.boton_detener.grid(column=3, row=11, sticky=tk.W, ipady=5, pady=35)
 
         # Instancia controlador
         self.controlador = None
@@ -528,6 +536,13 @@ class PanelObservacionAntena(ttk.Frame):
 
         self.style.configure(
             'BI.TButton',
+            background='#C84941',
+            foreground='white',
+            font=('Roboto', 15)
+        )
+
+        self.style.configure(
+            'BD.TButton',
             background='#C84941',
             foreground='white',
             font=('Roboto', 15)
